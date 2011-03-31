@@ -1,0 +1,218 @@
+{% load i18n %}
+
+
+<form method="get" action="/results"> 
+  <input type="hidden" name="subdomain" value=""> 
+  <input type="hidden" name="role" value="provide"> 
+  <input type="hidden" name="small" value=""> 
+  <input type="hidden" name="style" value=""> 
+  <table class="query" align="center"> 
+    <tr> 
+      <td class="instructions " colspan="2"> 
+        
+          <h3 class="sub_title">発見情報を提供する</h3> 
+            
+              見つけたペットの詳細を入力してください
+            
+        
+      </td> 
+    </tr> 
+    
+    
+        <tr> 
+          <td class="label"> 
+            <label for="name">ペットの名前:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <input id="name" name="name"
+                  value="" size=20> 
+            
+          </td> 
+        </tr> 
+
+      
+        <tr> 
+          <td class="label"> 
+            <label for="size"> 
+              
+                サイズ:
+              
+            </label> 
+          </td> 
+          <td class="field"> 
+            
+            <input id="size" name="size" type="radio"
+                value="0" size=20>小
+            <input id="size" name="size" type="radio"
+                value="1" size=20> 中
+            <input id="size" name="size" type="radio"
+                value="2" size=20> 大
+          </td> 
+        </tr> 
+        
+    
+
+        <tr> 
+          <td class="label"> 
+            <label for="body_color">色:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <input id="body_color" name="body_color"
+                  value="" size=20> 
+            
+          </td> 
+        </tr> 
+
+
+
+        <tr> 
+          <td class="label"> 模様</td> 
+          <td class="field"> 
+            
+              <input id="body_pattern" name="body_pattern"
+                  value="" size=20> 
+            
+          </td> 
+        </tr> 
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="body_characteristics">特徴:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <input id="body_characteristics" name="body_characteristics"
+                  value="" size=20> 
+            
+          </td> 
+        </tr> 
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="situation">見つけた時の状況:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <input id="situation" name="situation"
+                  value="" size=50> 
+            
+          </td> 
+        </tr> 
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="leash">リード:</label> 
+          </td> 
+          <td class="field"> 
+            
+            <input id="leash" name="leash" type="radio"
+                value="0"> なし
+            <input id="leash" name="leash" type="radio"
+                value="1" size=20>あり
+          </td> 
+        </tr> 
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="collar">首輪:</label> 
+          </td> 
+          <td class="field"> 
+            <input id="collar" name="collar" type="radio"
+                value="0"> なし
+            <input id="collar" name="collar" type="radio"
+                value="1" size=20>あり
+            
+          </td> 
+        </tr> 
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="location">場所 [緯度,経度]:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <input id="location_lat" name="location_lat"
+                  value="" size=20> 
+              <input id="location_lng" name="location_lng"
+                  value="" size=20> 
+          </td> 
+        </tr> 
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="last_seen_date">発見日YYYY/MM/DD:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <input id="last_seen_date" name="last_seen_date"
+                  value="" size=20> 
+            
+          </td> 
+        </tr> 
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="registration_num">登録番号:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <input id="registration_num" name="registration_num"
+                  value="" size=20> 
+            
+          </td> 
+        </tr> 
+
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="micro_chip_num">マイクロチップ番号:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <input id="micro_chip_num" name="micro_chip_num"
+                  value="" size=20> 
+            
+          </td> 
+        </tr> 
+
+
+        <tr> 
+          <td class="label"> 
+            <label for="other">その他:</label> 
+          </td> 
+          <td class="field"> 
+            
+              <textarea id="other" name="other"
+                  value="" cols="50" rows="5"></textarea>
+            
+          </td> 
+        </tr> 
+
+
+
+
+
+    
+    <tr> 
+     
+    </tr> 
+    <tr> 
+      <td colspan=2 class="submit" align="center"> 
+        
+          <input type="submit" value="このペットに関する情報を提供する"> 
+        
+      </td> 
+    </tr> 
+  </table> 
+</form> 
+ 
