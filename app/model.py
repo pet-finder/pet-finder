@@ -393,7 +393,7 @@ class Pet(Base):
 
 #old indexing
 prefix.add_prefix_properties(
-    Person, 'first_name', 'last_name', 'home_street', 'home_neighborhood',
+    Pet, 'first_name', 'last_name', 'home_street', 'home_neighborhood',
     'home_city', 'home_state', 'home_postal_code')
 
 
