@@ -38,6 +38,27 @@ PERSON_SEX_VALUES = [
     'other'
 ]
 
+# Possible values for the 'pet_type' field on a pet record.
+ANIMAL_TYPE_VALUES = [
+	'dog',
+	'cat',
+	'other'
+]
+
+# Possible values for the 'size' field on a pet record.
+ANIMAL_SIZE_VALUES = [
+	'small',
+	'medium',
+	'large'
+]
+
+TAIL_LENGTH_VALUES = [
+	'none',
+	'short',
+	'medium',
+	'long'
+]
+
 # Possible values for the 'status' field on a note record.
 NOTE_STATUS_VALUES = [
     '',  # unspecified

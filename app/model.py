@@ -205,9 +205,9 @@ class Base(db.Model):
 # types that have a false value, the default is the false value.  For types
 # with no false value, the default is None.
 
-class Person(Base):
+class Pet(Base):
     """The datastore entity kind for storing a PFIF person record.  Never call
-    Person() directly; use Person.create_clone() or Person.create_original().
+    Pet() directly; use Pet.create_clone() or Pet.create_original().
 
     Methods that start with "get_" return actual values or lists of values;
     other methods return queries or generators for values.
@@ -227,33 +227,32 @@ class Person(Base):
     source_date = db.DateTimeProperty()
     source_url = db.StringProperty(default='')
 
-    full_name = db.StringProperty()
-    first_name = db.StringProperty()
-    last_name = db.StringProperty()
-    sex = db.StringProperty(default='', choices=pfif.PERSON_SEX_VALUES)
-    date_of_birth = db.StringProperty(default='')  # YYYY, YYYY-MM, YYYY-MM-DD
-    age = db.StringProperty(default='')  # NN or NN-MM
-    home_street = db.StringProperty(default='')
-    home_neighborhood = db.StringProperty(default='')
-    home_city = db.StringProperty(default='')
-    home_state = db.StringProperty(default='')
-    home_postal_code = db.StringProperty(default='')
-    home_country = db.StringProperty(default='')
-    photo_url = db.TextProperty(default='')
-    other = db.TextProperty(default='')
-    
     # Extra information for pets
     pet_name = db.StringProperty()
-    pet_size = db.StringProperty()
-    body_color = db.StringProperty()
-    body_color_pattern = db.StringProperty()
-    pet_characteristics = db.StringProperty()
-    has_leash = db.BooleanProperty()
-    collar = db.StringProperty()    
+    in_shelter = db.BooleanProperty()
+    animal_type = db.StringProperty(required=True, choices=pfif.ANIMAL_TYPE_VALUES)
+    animal_size = db.StringProperty(default='', choices=pfif.ANIMAL_SIZE_VALUES)
+    characteristics = db.TextProperty(default='')
+    last_seen_location = db.ListProperty(float)
+    is_reported = db.BooleanProperty()
     registration_num = db.StringProperty()
     microchip_num = db.StringProperty()
-    location = db.ListProperty(float)
-     
+    has_owner_tag = db.BooleanProperty() 
+    color = db.StringProperty()
+    has_collar = db.BooleanProperty()   
+    has_leash = db.BooleanProperty()    
+    color_description = db.StringProperty()
+    tail_length = db.StringProperty(default='', choices=pfif.TAIL_LENGTH_VALUES)
+    paw_color = db.StringProperty()
+    weight = db.FloatProperty() # Check that it is an integer
+    is_spayed_neutered = db.BooleanProperty()
+    can_shake_paw = db.BooleanProperty()
+    shelter_name = db.StringProperty()
+    shelter_phone_number = db.IntegerProperty()
+    current_location = db.ListProperty(float)
+    discovered_location = db.ListProperty(float)
+    finder_contact_name =  db.StringProperty()
+    finder_contact_email = db.StringProperty()
 
     # This reference points to a locally stored Photo entity.  ONLY set this
     # property when storing a new Photo object that is owned by this Person
