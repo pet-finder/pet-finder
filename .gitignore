@@ -1,0 +1,15 @@
+app/config.pyc
+app/indexing.pyc
+app/model.pyc
+app/pfif.pyc
+app/prefix.pyc
+app/recaptcha/__init__.pyc
+app/recaptcha/client/__init__.pyc
+app/recaptcha/client/captcha.pyc
+app/simplejson/__init__.pyc
+app/simplejson/decoder.pyc
+app/simplejson/encoder.pyc
+app/simplejson/scanner.pyc
+app/text_query.pyc
+app/utils.pyc
+tools/setup.pyc
