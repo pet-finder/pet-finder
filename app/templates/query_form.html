@@ -1,218 +1,275 @@
 {% load i18n %}
-
-
-<form method="get" action="/results"> 
-  <input type="hidden" name="subdomain" value=""> 
-  <input type="hidden" name="role" value="provide"> 
-  <input type="hidden" name="small" value=""> 
-  <input type="hidden" name="style" value=""> 
-  <table class="query" align="center"> 
-    <tr> 
-      <td class="instructions " colspan="2"> 
-        
-          <h3 class="sub_title">発見情報を提供する</h3> 
-            
-              見つけたペットの詳細を入力してください
-            
-        
-      </td> 
-    </tr> 
-    
-    
-        <tr> 
-          <td class="label"> 
-            <label for="name">ペットの名前:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <input id="name" name="name"
-                  value="" size=20> 
-            
-          </td> 
-        </tr> 
-
-      
-        <tr> 
-          <td class="label"> 
-            <label for="size"> 
-              
-                サイズ:
-              
-            </label> 
-          </td> 
-          <td class="field"> 
-            
-            <input id="size" name="size" type="radio"
-                value="0" size=20>小
-            <input id="size" name="size" type="radio"
-                value="1" size=20> 中
-            <input id="size" name="size" type="radio"
-                value="2" size=20> 大
-          </td> 
-        </tr> 
-        
-    
-
-        <tr> 
-          <td class="label"> 
-            <label for="body_color">色:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <input id="body_color" name="body_color"
-                  value="" size=20> 
-            
-          </td> 
-        </tr> 
-
-
-
-        <tr> 
-          <td class="label"> 模様</td> 
-          <td class="field"> 
-            
-              <input id="body_pattern" name="body_pattern"
-                  value="" size=20> 
-            
-          </td> 
-        </tr> 
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="body_characteristics">特徴:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <input id="body_characteristics" name="body_characteristics"
-                  value="" size=20> 
-            
-          </td> 
-        </tr> 
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="situation">見つけた時の状況:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <input id="situation" name="situation"
-                  value="" size=50> 
-            
-          </td> 
-        </tr> 
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="leash">リード:</label> 
-          </td> 
-          <td class="field"> 
-            
-            <input id="leash" name="leash" type="radio"
-                value="0"> なし
-            <input id="leash" name="leash" type="radio"
-                value="1" size=20>あり
-          </td> 
-        </tr> 
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="collar">首輪:</label> 
-          </td> 
-          <td class="field"> 
-            <input id="collar" name="collar" type="radio"
-                value="0"> なし
-            <input id="collar" name="collar" type="radio"
-                value="1" size=20>あり
-            
-          </td> 
-        </tr> 
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="location">場所 [緯度,経度]:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <input id="location_lat" name="location_lat"
-                  value="" size=20> 
-              <input id="location_lng" name="location_lng"
-                  value="" size=20> 
-          </td> 
-        </tr> 
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="last_seen_date">発見日YYYY/MM/DD:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <input id="last_seen_date" name="last_seen_date"
-                  value="" size=20> 
-            
-          </td> 
-        </tr> 
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="registration_num">登録番号:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <input id="registration_num" name="registration_num"
-                  value="" size=20> 
-            
-          </td> 
-        </tr> 
-
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="micro_chip_num">マイクロチップ番号:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <input id="micro_chip_num" name="micro_chip_num"
-                  value="" size=20> 
-            
-          </td> 
-        </tr> 
-
-
-        <tr> 
-          <td class="label"> 
-            <label for="other">その他:</label> 
-          </td> 
-          <td class="field"> 
-            
-              <textarea id="other" name="other"
-                  value="" cols="50" rows="5"></textarea>
-            
-          </td> 
-        </tr> 
-
-
-
-
-
-    
-    <tr> 
-     
-    </tr> 
-    <tr> 
-      <td colspan=2 class="submit" align="center"> 
-        
-          <input type="submit" value="このペットに関する情報を提供する"> 
-        
-      </td> 
-    </tr> 
-  </table> 
-</form> 
- 
+{% include "map.html" %}
+<form method="get" action="/results">
+  <input type="hidden" name="role" value="provide">
+  <table class="create" cellpadding="0" cellspacing="0">
+    <tr class="columns">
+      <td>
+        <table class="person column" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <h2>見つけたペットの情報を入力して下さい。</h2>
+              <table class="person input" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="name section">
+                    <h3 class="mandatory">ペットの特徴</h3>
+                    <div class="hint">
+                      見つけたペットの身体的特徴を入力して下さい。
+                    </div>
+                    <table class="fields">
+                      <tr>
+                        <td class="label" class="mandatory">
+                          ペットの今の状態
+                        </td>
+                        <td>
+                          <div>
+                            <input type="radio" name="is_shelter" value="0"
+                                id="is_shelter_false">
+                            <label class="option" for="is_shelter_false">保護されていません。</label>
+                          </div>
+                          <div>
+                            <input type="radio" name="is_shelter" value="1"
+                                id="is_shelter_true">
+                            <label class="option" for="is_shelter_true">保護されています</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="animal_type" class="mandatory">種別</label>
+                        </td>
+                        <td>
+                          <input type="radio" name="animal_type" value="0"
+                              id="animal_type_dog">
+                          <label class="option" for="animal_type_dog">犬</label>
+                          <input type="radio" name="animal_type" value="1"
+                              id="animal_type_cat">
+                          <label class="option" for="animal_type_cat">猫</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="animal_size">サイズ
+                          </label>
+                        </td>
+                        <td>
+                          <input type="radio" name="animal_size" value="0"
+                                 id="animal_size_big">
+                          <label class="option" for="animal_size_big">大型</label>
+                          <input type="radio" name="animal_size" value="1"
+                                 id="animal_size_medium">
+                          <label class="option" for="animal_size_medium">普通</label>
+                          <input type="radio" name="animal_size" value="2"
+                                 id="animal_size_small">
+                          <label class="option" for="animal_size_small">小型</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="color">色</label> 
+                        </td>
+                        <td>
+                          <input name="color" id="color" size="30" autocomplete="off">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="has_collar">首輪の有無</label>
+                        </td>
+                        <td>
+                          <input type="checkbox" name="has_collar" id="has_collar" value="1" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="has_leash">首輪のひも</label> 
+                        </td>
+                        <td>
+                          <input type="checkbox" name="has_leash" id="has_leash" value="1" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="color_description">模様</label> 
+                        </td>
+                        <td>
+                          <input name="color_description" id="color_description" size="30"
+                              autocomplete="off">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          しっぽの長さ
+                        </td>
+                        <td>
+                          <div>
+                            <input type="radio" name="tail_length" value="0"
+                                   id="tail_length_long">
+                            <label class="option" for="tail_length_long">長い</label>
+                            <input type="radio" name="tail_length" value="1"
+                                   id="tail_length_medium">
+                            <label class="option" for="tail_length_medium">普通</label>
+                            <input type="radio" name="tail_length" value="2"
+                                   id="tail_length_short">
+                            <label class="option" for="tail_length_short">短い</label>
+                            <input type="radio" name="tail_length" value="3"
+                                   id="tail_length_none">
+                            <label class="option" for="tail_length_none">無し</label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="paw_color">肉球の色</label>
+                        </td>
+                        <td>
+                          <input name="paw_color" id="paw_color" size="30" autocomplete="off">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="weight">体重</label> 
+                        </td>
+                        <td>
+                          <input name="weight" id="weight" size="30" autocomplete="off">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="is_spayed_neutered">虚勢、避妊の有無</label> 
+                        </td>
+                        <td>
+                          <input type="checkbox" name="is_spayed_neutered" id="is_spayed_neutered" value="1" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="can_shake_paw">しつけ具合</label>
+                        </td>
+                        <td>
+                          <input type="checkbox" name="can_shake_paw" id="can_shake_paw" value="1" />
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="section">
+                    <h3>ペットの登録情報</h3>
+                    <div class="hint">
+                      もし保健所への登録情報や迷子札が確認できましたらお書き下さい。
+                    </div>
+                    <table>
+                      <tr>
+                        <td class="label">
+                          <label for="registration_num">鑑札札の有無</label>
+                        </td>
+                        <td>
+                          <input name="color_description" id="color_description" size="30"
+                              autocomplete="off">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="microchip_num">マイクロチップの有無</label>
+                        </td>
+                        <td>
+                          <input name="color_description" id="color_description" size="30"
+                              autocomplete="off">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="label">
+                          <label for="has_owner_tag">迷子札の有無</label>
+                        </td>
+                        <td>
+                          <input name="color_description" id="color_description" size="30"
+                              autocomplete="off">
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="description section">
+                    <h3><label for="description">
+                        {% trans "Description" %}
+                    </label></h3> 
+                   <div class="hint">
+                      {% trans "Describe how to identify this person." %}
+                    </div>
+                    <table class="fields">
+                      <tr>
+                        <td>
+                            <textarea name="description" id="description"
+                              cols="40" rows="5"></textarea>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table class="person column" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <h2>見つけたペットの情報を入力して下さい。</h2>
+              <table class="person input" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="name section">
+                    <h3 class="mandatory"></h3>
+                    <div class="hint">
+                      このペットが保護されている場合は、保護先の情報を記入して下さい。また、避難所や保健所ではなく、個人で保護している場合はあなたの連絡先をご記入下さい。
+                    </div>
+                    <table class="fields">
+                        <tr>
+                          <td class="label">
+                            <label for="shelter_name">保護施設の名称</label>
+                          </td>
+                          <td>
+                            <input name="shelter_name" id="shelter_name" size="20"
+                                value="" autocomplete="off">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="label">
+                            <label for="shelter_phone_number">保護施設の連絡先</label>
+                          </td>
+                          <td>
+                            <input name="shelter_phone_number" id="shelter_phone_number" size="20"
+                                value="" autocomplete="off">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="label">
+                            <label for="finder_contact_name" class="mandatory">保護者の名前</label>
+                          </td>
+                          <td>
+                            <input name="finder_contact_name" id="finder_contact_name" size="20"
+                                value="" autocomplete="off">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="label">
+                            <label for="finder_contact_email" class="mandatory">保護者の連絡先</label>
+                          </td>
+                          <td>
+                            <input name="finder_contact_email" id="finder_contact_email" size="20"
+                                value="" autocomplete="off">
+                          </td>
+                        </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
