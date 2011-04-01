@@ -285,7 +285,7 @@ class Pet(Base):
     def past_due_records():
         """Returns a query for all Person records with expiry_date in the past,
         regardless of their is_expired flags."""
-        return Person.all(filter_expired=False).filter(
+        return Pet.all(filter_expired=False).filter(
             'expiry_date <=', utils.get_utcnow())
 
     def get_person_record_id(self):
@@ -307,7 +307,7 @@ class Pet(Base):
         """Retrieves the Persons linked (as duplicates) to this Person."""
         linked_persons = []
         for note in self.get_notes():
-            person = Person.get(self.subdomain, note.linked_person_record_id)
+            person = Pet.get(self.subdomain, note.linked_person_record_id)
             if person:
                 linked_persons.append(person)
         return linked_persons
@@ -393,7 +393,7 @@ class Pet(Base):
 
 #old indexing
 prefix.add_prefix_properties(
-    Person, 'first_name', 'last_name', 'home_street', 'home_neighborhood',
+    Pet, 'first_name', 'last_name', 'home_street', 'home_neighborhood',
     'home_city', 'home_state', 'home_postal_code')
 
 
