@@ -269,6 +269,65 @@
             </td>
           </tr>
         </table>
+        <br />
+        <table class="create note column" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <h2>
+                {% if not markdup %}
+                {% trans "Tell us the status of this person" %}
+                {% else %}
+                {% trans "Mark records as duplicate" %}
+                {% endif %}
+              </h2>
+              <table class="note input" cellpadding="0" cellspacing="0">
+                {% if not markdup %}
+                <tr>
+                  <td class="location section">
+                    <h3>
+                      {% trans "Last known location" %}
+                    </h3>
+                    <div class="hint">
+                      {% trans "Type an address or open the map below and indicate the location by moving the pin." %}
+                    </div>
+                    <table class="fields">
+                      <tr>
+                        <td>
+                          <input name="last_known_location"
+                              id="last_known_location" size="40">
+                        </td>
+                      </tr>
+                    </table>
+                    {% if env.maps_api_key %}
+                      <table class="map-container">
+                        <tr>
+                          <td>
+                            <div id="map_canvas_show_link" style="display: none">
+                              <a href='#' onclick="toggle('map_canvas', document.getElementById('last_known_location').value); return false;" >
+                              {% trans "Show Map" %}
+                              </a>
+                            </div>
+                            <div id="map_canvas_hide_link" style="display: none">
+                              <a href='#' onclick="toggle('map_canvas', document.getElementById('last_known_location').value); return false;" >
+                              {% trans "Hide Map" %}
+                              </a>
+                            </div>
+                            <script type="text/javascript">
+                              ToggleMapLink('map_canvas');
+                            </script>
+                            <div id="map_canvas" class="hidden map">
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endif %}
+              </table>
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
   </table>
